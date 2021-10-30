@@ -1,0 +1,37 @@
+(nil)(nil, "\n")
+workspace:FindFirstChildOfClass("Terrain").WaterWaveSize = 0
+workspace:FindFirstChildOfClass("Terrain").WaterWaveSpeed = 0
+workspace:FindFirstChildOfClass("Terrain").WaterReflectance = 0
+workspace:FindFirstChildOfClass("Terrain").WaterTransparency = 0
+game:GetService("Lighting").GlobalShadows = false
+game:GetService("Lighting").FogEnd = 9000000000
+settings().Rendering.QualityLevel = _G.Quality
+for fl, fm in pairs(game:GetDescendants()) do
+  if fm:IsA("TrussPart") then
+    fm.Material = "Plastic"
+    fm.Reflectance = 0
+  elseif fm:IsA("Decal") then
+    fm.Transparency = _G.Transparency
+  elseif fm:IsA("Trail") then
+    fm.Lifetime = NumberRange.new(0)
+  elseif fm:IsA("Explosion") then
+    fm.BlastPressure = 1
+    fm.BlastRadius = 1
+  end
+end
+for fl, fm in pairs(game:GetService("Lighting"):GetDescendants()) do
+  if fm:IsA("DepthOfFieldEffect") then
+    fm.Enabled = false
+  end
+end
+function newNotify(a)
+  a = a
+  loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))().Notify("Notification", a, "rbxassetid://6319951718", {
+    Duration = 2,
+    Main = {Rounding = true}
+  })
+end
+setclipboard("discord.gg/dahubx")
+newNotify("this script made by lxyodevelopment#1310")
+wait(2)
+newNotify("server copied in ur clipboard")
